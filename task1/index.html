@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test</title>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="container__logo">
+			<img src="./src/logo.svg" alt="" class="logo">
+		</div>
+		<div class="container__choice-alchogol">
+			<div class="container__choice-alchogol__block">
+				<h1 class="container__choice-alchogol__block__header">Vanila Unicorn</h1>
+				<h1 class="container__choice-alchogol__block__object">Напитки</h1>
+				<div id="app">
+				<!-- <div :v-for="item in message" :key="index" class="content">{{message.item}}</div> -->
+						<div class="ui">
+							<div class="drink">{{alchogol[index]}}</div>
+							<button @click="btnLeft" class="btn-left"></button>
+							<button @click="btnRight" class="btn-right"></button>
+						</div>
+						<div class="underButton">
+							<button @click="close" class="underButton__close">Закрыть</button>
+							<button @click="buy" class="underButton__buy">Купить</button>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /.container -->
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				alchogol: [
+					'Пиво',
+					'Водка',
+					'Вино',
+					'Шампусик',
+					'Вики',
+					'Кола',
+				],
+				index:0
+			},
+			methods: {
+				btnLeft: function ( ){
+							if(this.index > 0) this.index--;
+							
+				},
+				btnRight: function ( ){
+					if(this.index < this.alchogol.length-1) this.index++;
+				}
+			},
+		})
+	</script>
+</body>
+</html>
